@@ -1,0 +1,124 @@
+body{
+    background-color: #F7FCFC
+}
+
+.Header{
+    background-Color:#06CDDB;
+    padding: 20pxm 10px;
+    overflow: hidden;
+    color: #02383C;
+    font-family: Helvetica;
+}
+
+
+h1{
+    text-align: center;
+}
+
+.Section{
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    margin-top: 5%;
+
+}
+
+.bnt{
+   text-align: center;
+   margin-top: 50px;
+   vertical-align: middle;
+   display:inline-block;
+   justify-content: center;
+}
+
+.efeito{
+    border: none;
+    background-Color: #06CDDB;
+    width: 200px;
+    height: 100px;
+    margin: 20px;
+    padding: 20px;
+    position: relative;
+    border-radius: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+
+
+.efeito-1:hover{
+    background: #04828B;
+}
+
+.Link{
+    color: #02383C;
+    text-decoration: none;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+.Upload{
+    text-align: Center;
+}
+
+.inputfile {
+    display: none;
+}
+
+.imagem{
+    max-width: 250px;
+    max-height: 150px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.upload-box{
+    text-align: center;
+    /* margin-top: 55px; */
+}
+
+p{
+    color: #02383C;
+    font-family: Helvetica;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.DivImage{
+    text-align: center;
+    align-items: center;
+}
+
+.Tabela{
+    margin-left: auto;
+    margin-right: '20%';
+    font-size: 20px;
+    height: 650; 
+    width: '30%';
+    float:'center';
+}
+
+.Frase{
+    text-align: Center;
+    color: #02383C;
+    font-family: Helvetica;
+    height: 60px;
+    padding-top: 30px;
+    font-size: 20px;
+}
+
+.MuiDataGrid-cellCheckbox	{
+    background-color: #e26f7b;
+}
+
+h3{
+    font-size: 15px;
+    color: #02383C;
+    font-family: Helvetica;
+}
+
