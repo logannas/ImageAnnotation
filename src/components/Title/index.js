@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles(() => ({
     Title: {
         textAlign: "Center",
-        color: "#ffffff",
+        color: "#000000",
         fontFamily: "Helvetica",
         height: "60px",
         paddingTop: "70px",

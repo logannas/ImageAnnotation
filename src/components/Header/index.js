@@ -1,9 +1,10 @@
 import React from 'react';
-import { AppBar, Toolbar, makeStyles } from "@material-ui/core";
+import { AppBar, Button, Toolbar, makeStyles } from "@material-ui/core";
+import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
     header: {
-        background: 'linear-gradient(45deg, #426eaa 30%, #6c2978 90%)',
+        background: '#5d99c6',
         fontFamily: "Helvetica",
         color: "#000000",
     },
@@ -11,18 +12,29 @@ const useStyles = makeStyles(() => ({
     toolbar: {
         display: "flex",
         justifyContent: "space-between",
-        color: "white",
+        color: "#000000",
+    },
+    menuButton: {
+        fontFamily: "Open Sans, sans-serif",
+        fontWeight: 700,
+        size: "18px",
+        marginLeft: "38px",
+        variant: "contained",
+        color: "black",
     },
 }));
 
 export default function Header(props) {
-    const { header, toolbar } = useStyles();
+    const classes = useStyles();
 
     return (
         <header>
-            <AppBar className={header}><Toolbar className={toolbar}>
-                {props.title}
-            </Toolbar></AppBar>
+            <AppBar className={classes.header}>
+                <Toolbar className={classes.toolbar}>
+                    {props.title}
+                    <Button {...{ key: "Init", to: "/", className: classes.menuButton, component: RouterLink }}>Início</Button>
+                </Toolbar>
+            </AppBar>
         </header>
     );
 }

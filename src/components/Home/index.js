@@ -1,9 +1,8 @@
 import React from 'react';
 import Header from '../Header/index';
-import Object from '../Object/index';
-import Classification from '../Classification/index';
 import Title from '../Title/index';
-import { makeStyles } from "@material-ui/core";
+import { Button, makeStyles } from "@material-ui/core";
+import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
     Section: {
@@ -13,7 +12,18 @@ const useStyles = makeStyles(() => ({
         alignItems: "center",
         margin: "auto",
         width: "100%",
-    }
+    },
+    button: {
+        fontFamily: "Helvetica",
+        background: "#5d99c6",
+        width: "150px",
+        display: "inline-block",
+        margin: "20px",
+        padding: "10px",
+        borderRadius: "3px",
+        color: "black",
+        cursor: "pointer",
+    },
 }));
 
 export default function Home() {
@@ -24,8 +34,8 @@ export default function Home() {
             <Header title="Esse é o título" />
             <Title title="Escolha uma opção abaixo:" />
             <div className={classes.Section}>
-                <Object />
-                <Classification />
+                <Button type="button"{...{ key: "buttonSegmentation", to: "/segmentation", className: classes.button, component: RouterLink }}>Segmentação</Button>
+                <Button type="button"{...{ key: "buttonClassification", to: "/classification", className: classes.button, component: RouterLink }}>Classificação</Button>
                 <br></br>
             </div>
         </div>

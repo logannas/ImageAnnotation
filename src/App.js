@@ -1,14 +1,10 @@
 import './App.css';
-import Home from '../src/components/Home';
-import { Helmet } from 'react-helmet';
+import Routes from './router';
 
 function App() {
   return (
     <div>
-      <Helmet>
-        <style>{'body { background-color:  #143D6E ; }'}</style>
-      </Helmet>
-      <Home />
+      <Routes />
     </div>
 
   );

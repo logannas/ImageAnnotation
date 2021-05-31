@@ -1,22 +1,38 @@
 import React from 'react';
 import Imagem from '../Image/index';
-import { makeStyles } from "@material-ui/core";
+import Header from '../Header/index';
+import {Button, makeStyles } from "@material-ui/core";
 import BBox from '../BBox/index';
-import PublishIcon from '@material-ui/icons/Publish';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { Link as RouterLink } from 'react-router-dom';
+
 
 const useStyles = makeStyles(() => ({
-    modal: {
-        backgroundColor: "#F7FCFC",
-        marginLeft: "10%",
-        marginRight: "10%",
-        marginTop: "8%",
-        height: "calc(100vh - 200px)",
-        overflowY: "auto",
+    root: {
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        textAlign: "center",
+        display: "inline-block",
+        justifyContent: "center",
+        alignItems: "center",
     },
-
     button: {
         fontFamily: "Helvetica",
-        background: "#6C2978",
+        width: "100px",
+        display: "inline-block",
+        margin: "10px",
+        padding: "10px",
+        borderStyle: "dotted",
+        borderWidth: "thin",
+        borderRadius: "5px",
+        color: "black",
+        cursor: "pointer",
+    },
+    button1: {
+        fontFamily: "Helvetica",
+        background: "#5d99c6",
         width: "100px",
         display: "inline-block",
         margin: "10px",
@@ -30,28 +46,43 @@ const useStyles = makeStyles(() => ({
     },
     p: {
         fontFamily: "Helvetica",
-        color: "#ffffff",
+        color: "black",
         fontSize: "15px",
     },
-    fildset: {
-        width: "400px",
+    box: {
+        marginTop: "10%",
+        width: "95%",
+        minHeight: "50%",
         margin: "auto",
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        textAlign: "center",
+        display: "inline-block",
+        justifyContent: "center",
+        alignItems: "center",
     },
     fildset1: {
         background: "#f2f8ff",
+        boxShadow: "5px 10px",
         width: "95%",
         height: "100%",
         margin: "auto",
     },
     legend: {
         fontFamily: "Helvetica",
-        color: "#ffffff",
+        color: "black",
         fontSize: "15px",
+    },
+    bbox: {
+        marginTop: "5%",
+        marginBottom: "5%",
+        marginRight: "1%",
+    },
+    buttonBack:{
+        float:"left",
     }
 }));
 
-
-export default function CObject() {
+export default function Segmentation() {
     const [isBusy, setBusy] = React.useState(false);
     const [isBusyButton, setBusyButton] = React.useState(false);
     const [file, setFile] = React.useState("");
@@ -65,12 +96,11 @@ export default function CObject() {
         event.target.value = null;
     }
 
-    const clickBusy = () => {
-        setBusy(isBusy => !isBusy)
-        setBusyButton(false)
+    const refreshPage = () =>{
+        window.location.reload();
     }
 
-    const classification = () => {
+    const segmentation = () => {
         //Chamar APi
         let jsn = {
             "rois": [
@@ -316,8 +346,8 @@ export default function CObject() {
         }
         setRows(rows)
         if (file) {
+            setBusy(true)
             setBusyButton(true)
-            setBusy(false)
         }
         else {
             alert("É necessário selecionar uma imagem")
@@ -326,34 +356,33 @@ export default function CObject() {
 
     return (
         <div>
-            <label onClick={clickBusy} type="button"{...{ key: "button", className: classes.button }}>Objeto</label>
-            {isBusy ? (
-                <div>
-                    <fieldset className={classes.fildset}>
-                        <legend className={classes.legend}>Objeto</legend>
-                        <input type="file" id="file" accept="image/*" onChange={handleUpload} className={classes.fileinput} />
-                        <label htmlFor="file" className={classes.button}><PublishIcon /></label>
-                        <p className={classes.p}>Nome da imagem: {file.name}</p>
-                        <p className={classes.p}>Tipo da imagem: {file.type}</p>
-                        <p className={classes.p}>Tamanho da imagem: {file.size} bytes</p>
-                        {file && <Imagem image={file} />}
-                        <label className={classes.button} onClick={classification}>Enviar</label>
-                    </fieldset>
+            <Header title="Esse é o título" />
+            <br></br>
+            <div className={classes.root}>
+                <div className={classes.box}>
+                    <Button onClick={refreshPage} {...{ key: "Init", className: classes.buttonBack, component: RouterLink }}><ArrowBackIcon /></Button>
+                    {isBusy ? (
+                        <div></div>
+                    ) : (
+
+                        <div>
+                            <p>Selecione uma imagem</p>
+                            <input type="file" id="file" accept="image/*" onChange={handleUpload} className={classes.fileinput} />
+                            <label htmlFor="file" className={classes.button}><GetAppIcon /></label>
+                            {file && <Imagem image={file} />}
+                            {file && <label className={classes.button1} onClick={segmentation}>Enviar</label>}
+                        </div>
+                    )}
+                    {isBusyButton ? (
+                        <div className={classes.bbox}>
+                            <BBox image={file} js={js} rows={rows} />
+                        </div>
+                    ) : (
+                        <div></div>
+                    )
+                    }
                 </div>
-            ) : (
-                <div></div>
-            )
-            }
-            {isBusyButton ? (
-                <div>
-                    <fieldset className={classes.fildset1}>
-                        <BBox image={file} js={js} rows={rows} />
-                    </fieldset>
-                </div>
-            ) : (
-                <div></div>
-            )
-            }
-        </div >
+            </div>
+        </div>
     );
 }
