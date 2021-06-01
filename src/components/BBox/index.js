@@ -98,7 +98,7 @@ export default function BBox(props) {
         <div className={classes.root}>
           <canvas ref={canvas} className={classes.canvas}></canvas>
           <div className={classes.table}>
-            <DataGrid rows={rows} columns={columns} checkboxSelection={true} pageSize={5} hideFooterSelectedRowCount={true} autoHeight={true} onSelectionChange={e => {
+            <DataGrid rows={rows} columns={columns} checkboxSelection={true} pageSize={10} hideFooterSelectedRowCount={true} autoHeight={true} onSelectionChange={e => {
               for (var y in aux) {
                 aux[y][6] = false;
               }
