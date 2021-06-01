@@ -1,15 +1,23 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core";
+import 'fontsource-roboto';
 
 const useStyles = makeStyles(() => ({
     Title: {
         textAlign: "Center",
         color: "#000000",
-        fontFamily: "Helvetica",
         height: "60px",
-        paddingTop: "70px",
-        fontSize: "18px",
-    }
+        paddingTop: "80px",
+        fontSize: "40px",
+        fontWeight: "400",
+    },
+    Subtitle: {
+        textAlign: "Center",
+        color: "#000000",
+        height: "60px",
+        fontSize: "20px",
+        fontWeight: "400",
+    },
 }));
 
 export default function Title(props) {
@@ -17,7 +25,8 @@ export default function Title(props) {
 
     return (
         <div>
-            <div className={classes.Title}><h2>{props.title}</h2></div>
+            <div className={classes.Title}>{props.title}</div>
+            <p className={classes.Subtitle}>É necessário escolher a opção ou de segmentação de imagem ou classificação de imagem para começar:</p>
         </div>
     );
 }

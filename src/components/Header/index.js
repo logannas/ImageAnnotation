@@ -1,18 +1,19 @@
 import React from 'react';
 import { AppBar, Button, Toolbar, makeStyles } from "@material-ui/core";
+import HomeIcon from '@material-ui/icons/Home';
 import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
     header: {
-        background: '#5d99c6',
+        background: '#2196f3',
         fontFamily: "Helvetica",
-        color: "#000000",
+        color: "white",
     },
 
     toolbar: {
         display: "flex",
         justifyContent: "space-between",
-        color: "#000000",
+        color: "white",
     },
     menuButton: {
         fontFamily: "Open Sans, sans-serif",
@@ -20,7 +21,7 @@ const useStyles = makeStyles(() => ({
         size: "18px",
         marginLeft: "38px",
         variant: "contained",
-        color: "black",
+        color: "white",
     },
 }));
 
@@ -31,8 +32,11 @@ export default function Header(props) {
         <header>
             <AppBar className={classes.header}>
                 <Toolbar className={classes.toolbar}>
-                    {props.title}
-                    <Button {...{ key: "Init", to: "/", className: classes.menuButton, component: RouterLink }}>Início</Button>
+                    <Button {...{ key: "Init", to: "/", className: classes.menuButton, component: RouterLink }}>
+                    <HomeIcon />
+                    &nbsp;
+                    Início
+                    </Button>
                 </Toolbar>
             </AppBar>
         </header>

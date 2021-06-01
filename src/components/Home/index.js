@@ -3,6 +3,9 @@ import Header from '../Header/index';
 import Title from '../Title/index';
 import { Button, makeStyles } from "@material-ui/core";
 import { Link as RouterLink } from 'react-router-dom';
+import { RiImageEditFill } from "react-icons/ri";
+import { RiImageLine } from "react-icons/ri";
+import 'fontsource-roboto';
 
 const useStyles = makeStyles(() => ({
     Section: {
@@ -14,16 +17,19 @@ const useStyles = makeStyles(() => ({
         width: "100%",
     },
     button: {
-        fontFamily: "Helvetica",
-        background: "#5d99c6",
+        background: "#2196f3",
         width: "150px",
         display: "inline-block",
         margin: "20px",
         padding: "10px",
         borderRadius: "3px",
-        color: "black",
+        color: "white",
         cursor: "pointer",
     },
+    icon: {
+        width: "40px",
+        height: "40px",
+    }
 }));
 
 export default function Home() {
@@ -31,11 +37,19 @@ export default function Home() {
 
     return (
         <div>
-            <Header title="Esse é o título" />
-            <Title title="Escolha uma opção abaixo:" />
+            <Header title="Anotação de Imagens" />
+            <Title title="Anotação de Imagens" />
             <div className={classes.Section}>
-                <Button type="button"{...{ key: "buttonSegmentation", to: "/segmentation", className: classes.button, component: RouterLink }}>Segmentação</Button>
-                <Button type="button"{...{ key: "buttonClassification", to: "/classification", className: classes.button, component: RouterLink }}>Classificação</Button>
+                <Button type="button"{...{ key: "buttonSegmentation", to: "/segmentation", className: classes.button, component: RouterLink }}>
+                    <RiImageEditFill className={classes.icon} />
+                    <br></br>
+                    Segmentação
+                </Button>
+                <Button type="button"{...{ key: "buttonClassification", to: "/classification", className: classes.button, component: RouterLink }}>
+                    <RiImageLine className={classes.icon} />
+                    <br></br>
+                    Classificação
+                </Button>
                 <br></br>
             </div>
         </div>
