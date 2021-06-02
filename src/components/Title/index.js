@@ -26,7 +26,7 @@ export default function Title(props) {
     return (
         <div>
             <div className={classes.Title}>{props.title}</div>
-            <p className={classes.Subtitle}>É necessário escolher a opção ou de segmentação de imagem ou classificação de imagem para começar:</p>
+            <p className={classes.Subtitle}>Choose one of the options below</p>
         </div>
     );
 }

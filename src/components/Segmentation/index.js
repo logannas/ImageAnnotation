@@ -372,12 +372,12 @@ export default function Segmentation() {
                 <div className={classes.root}>
                     <div className={classes.box}>
                         <div>
-                            <p>Selecione uma imagem</p>
+                            <p>Upload Files</p>
                             <input type="file" id="file" accept="image/*" onChange={handleUpload} className={classes.fileinput} />
                             <label htmlFor="file" className={classes.button}>
                                 <FaCloudUploadAlt className={classes.icon} />
                                 <br></br>
-                                Procure sua imagem
+                                Click here to select an image
                             {file && <Imagem image={file} />}
                             </label>
                             {file && <label className={classes.button1} onClick={segmentation}>Enviar</label>}

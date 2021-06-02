@@ -31,9 +31,9 @@ export default function ResultClassification(props){
         <div>
             {PostLiveness()}
             <div className="upload-box Upload" >
-                <p>Tipo da solicitação: Classificação de Imagem</p>
-                <p>Classe: <u>Real</u></p>
-                <p>Probabilidade: <u>X %</u></p>
+                <p>Request Type: Image Classification</p>
+                <p>Class: <u>Real</u></p>
+                <p>Probability: <u>X %</u></p>
                 {file && <Imagem image={file} />}
             </div>
         </div>

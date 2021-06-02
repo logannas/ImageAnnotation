@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function Header(props) {
+export default function Header() {
     const classes = useStyles();
 
     return (
@@ -35,7 +35,7 @@ export default function Header(props) {
                     <Button {...{ key: "Init", to: "/", className: classes.menuButton, component: RouterLink }}>
                     <HomeIcon />
                     &nbsp;
-                    Início
+                    Home
                     </Button>
                 </Toolbar>
             </AppBar>
