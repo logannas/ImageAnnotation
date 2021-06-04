@@ -30,6 +30,7 @@
     "react-image-annotation": "^0.9.10",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-zoom-pan-pinch": "^1.6.1",
     "web-vitals": "^0.2.4",
     "webpack-bundle-analyzer": "^4.4.2"
   },
