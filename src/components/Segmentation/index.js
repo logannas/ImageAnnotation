@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Header from '../Header/index';
 import { makeStyles } from "@material-ui/core";
 import { DataGrid } from '@material-ui/data-grid';
@@ -112,6 +112,10 @@ export default function Segmentation() {
     const classes = useStyles();
     var img = document.createElement("img");
     var cnvs = [];
+
+    useEffect(() => {
+        setTable(false)
+      }, [file]);
 
     function handleUpload(event) {
         setFile(event.target.files[0]);
@@ -409,6 +413,8 @@ export default function Segmentation() {
             }
         }
 
+        console.log(cnvs)
+        console.log(img)
         cnvs.width = img.width;
         cnvs.height = img.height;
         ctx = cnvs.getContext("2d");
