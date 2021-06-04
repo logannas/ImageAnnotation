@@ -40,12 +40,12 @@ export default function Home() {
             <Header />
             <Title title="Image Annotations" />
             <div className={classes.Section}>
-                <Button type="button"{...{ key: "buttonSegmentation", to: "/segmentation", className: classes.button, component: RouterLink }}>
+                <Button type="button"{...{ key: "buttonSegmentation", to: "/extraction", className: classes.button, component: RouterLink }}>
                     <RiImageEditFill className={classes.icon} />
                     <br></br>
                     Extraction
                 </Button>
-                <Button type="button"{...{ key: "buttonClassification", to: "/classification", className: classes.button, component: RouterLink }}>
+                <Button type="button"{...{ key: "buttonClassification", to: "/liveness", className: classes.button, component: RouterLink }}>
                     <RiImageLine className={classes.icon} />
                     <br></br>
                     Liveness

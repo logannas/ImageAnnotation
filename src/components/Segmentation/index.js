@@ -447,7 +447,7 @@ export default function Segmentation() {
                         <div>
                             <TransformWrapper>
                                 <TransformComponent>
-                                    <canvas ref={canvas}></canvas>
+                                    <canvas ref={canvas} style={{maxWidth:"80%"}}></canvas>
                                 </TransformComponent>
                             </TransformWrapper>
                         </div>

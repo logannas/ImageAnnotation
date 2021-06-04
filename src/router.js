@@ -9,8 +9,8 @@ function Routes(){
     return(
         <BrowserRouter>
             <Route component={Home} path="/" exact/>
-            <Route component={Classification} path="/classification" />
-            <Route component={Segmentation} path="/segmentation"/>
+            <Route component={Classification} path="/liveness" />
+            <Route component={Segmentation} path="/extraction"/>
         </BrowserRouter>
     );
 }
