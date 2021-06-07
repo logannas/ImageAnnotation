@@ -114,7 +114,7 @@ export default function Segmentation() {
     var cnvs = [];
 
     useEffect(() => {
-        setTable(false)
+        setTable(false);
       }, [file]);
 
     function handleUpload(event) {
